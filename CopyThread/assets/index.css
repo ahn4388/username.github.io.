@@ -1,0 +1,137 @@
+/* index.css - 메인 화면에 사용되는 스타일 */
+
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    font-size: 24px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"], textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* 주제 목록 스타일 */
+.topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.topic-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.topic-item:hover {
+    background-color: #f1f1f1;
+}
+
+.topic-item h3 {
+    margin-top: 0;
+}
+
+.topic-item p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.comment-count {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+    display: block;
+}
+
+/* 검색 영역 스타일 */
+#searchSection {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#searchInput, #searchType, #searchButton {
+    padding: 5px 10px; /* 검색창 높이 줄임 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#searchButton {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+}
+
+/* MZ 주제 컨테이너 스타일 */
+#mzContainer {
+    max-height: 50px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+#mzContainer.expanded {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.mz-topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mz-topic-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mz-topic-item:hover {
+    background-color: #f0f0f0;
+}

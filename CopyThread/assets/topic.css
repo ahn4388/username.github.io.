@@ -1,0 +1,581 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* 댓글 스타일 */
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* 댓글 컨테이너 기본 스타일 */
+#commentsContainer {
+    max-height: 400px; /* 댓글 영역 최대 높이 설정 */
+    overflow-y: auto;  /* 세로 스크롤 추가 */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+/* 댓글이 없을 때 스타일 적용 */
+#commentsContainer.empty {
+    min-height: 200px; /* 세로로 2배 크기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+/* 댓글이 없을 때 표시할 메시지 스타일 */
+.empty-comments-message {
+    text-align: center;
+    color: #888; /* 회색 */
+    font-size: 1.2em;
+    padding: 20px;
+}
+
+/* 추천/비추천 및 설정 버튼 스타일 */
+.actions button, .settings-button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 3px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.actions button:hover, .settings-button:hover {
+    background-color: #bbb;
+}
+
+/* 설정 메뉴 스타일 */
+.settings-menu {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.settings-menu button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: #f44336;
+    color: white;
+}
+
+.settings-menu button:last-child {
+    background-color: #4CAF50;
+}
+
+.settings-menu button:hover {
+    opacity: 0.8;
+}
+
+/* 비밀번호 입력 프롬프트 스타일 */
+.password-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.password-prompt p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.password-prompt input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.password-prompt button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.password-prompt button:hover {
+    background-color: #45a049;
+}
+
+.password-prompt button:last-child {
+    background-color: #f44336;
+}
+
+.password-prompt button:last-child:hover {
+    background-color: #e53935;
+}
+
+/* 인라인 입력칸 스타일 */
+.inline-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.inline-inputs input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 댓글 달기 버튼 스타일 */
+#commentForm button[type="submit"] {
+    width: 100%; /* 댓글 입력 창과 동일한 가로 크기 */
+    padding: 10px; /* 세로 크기 조정 */
+    border-radius: 5px; /* 둥근 모서리 */
+    font-size: 16px; /* 폰트 크기 조정 */
+    background-color: #ccc; /* 초기 회색 */
+    color: white;
+    border: none;
+    cursor: not-allowed; /* 초기 비활성화 상태 */
+    transition: background-color 0.3s ease; /* 색상 변화 애니메이션 */
+}
+
+#commentForm button[type="submit"].active {
+    background-color: #4CAF50; /* 조건 충족 시 초록색 */
+    cursor: pointer; /* 활성화 시 커서 변경 */
+}
+
+#commentForm button[type="submit"].inactive {
+    background-color: #ccc; /* 비활성화 시 회색 */
+    cursor: not-allowed; /* 비활성화 시 커서 */
+}
+
+/* 댓글 작성 칸 스타일 */
+#commentInput {
+    width: 100%;
+    height: 100px; /* 세로 길이 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    resize: none; /* 크기 조절 불가 */
+}
+
+/* 닉네임 입력 칸 스타일 */
+.inline-inputs input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 아이콘 크기 고정 */
+.file-upload-box label img {
+    width: 20px !important;  /* 아이콘의 너비를 20px로 고정 설정 */
+    height: 20px !important; /* 아이콘의 높이를 20px로 고정 설정 */
+    object-fit: contain;     /* 이미지 비율 유지하며 크기 조정 */
+    flex-shrink: 0;          /* 부모 요소에 의해 크기가 줄어들지 않도록 설정 */
+}
+
+/* 파일 첨부 스타일 */
+.file-upload-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 150px; /* 높이 제한 설정 */
+    overflow-x: auto; /* 가로 스크롤 활성화 */
+    cursor: pointer; /* 클릭할 수 있는 커서 표시 */
+}
+
+.file-preview-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* 가로 스크롤 활성화 */
+    padding-top: 10px;
+    flex-wrap: nowrap; /* 가로로 정렬 */
+}
+
+.file-preview {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* 호버링 애니메이션 추가 */
+}
+
+.file-preview:hover {
+    transform: scale(1.2); /* 호버링 시 크기 확장 */
+}
+
+.file-preview video, .file-preview img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* 파일 미리보기 확장 */
+.file-preview.expanded {
+    transform: scale(1.2); /* 선택 시 확장 */
+}
+
+/* 전체 화면 이미지 표시 */
+.fullscreen-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% 투명도 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fullscreen-image-container img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+/* 전체 화면 이미지 닫기 버튼 */
+.close-fullscreen {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-fullscreen:hover {
+    background-color: #e53935;
+}
+
+/* 댓글 이미지 스타일 */
+.comment .file-preview-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* 가로 스크롤 활성화 */
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.comment .file-preview img:hover {
+    transform: scale(1.2); /* 호버링 시 확장 */
+}
+
+/* 외부 클릭 시 설정 메뉴 닫기 */
+body {
+    position: relative;
+}
+
+/* "커뮤니티" 링크 스타일 */
+#communityLinkContainer {
+    text-align: center; /* 가운데 정렬 */
+    margin-bottom: 20px; /* 아래 간격 추가 */
+}
+
+#communityLink {
+    font-size: 24px; /* 폰트 크기 */
+    font-weight: bold; /* 폰트 굵기 */
+    text-decoration: none; /* 밑줄 제거 */
+    color: #4CAF50; /* 텍스트 색상 */
+    transition: color 0.3s ease; /* 호버링 애니메이션 */
+}
+
+#communityLink:hover {
+    color: #388E3C; /* 호버링 시 색상 변경 */
+}
+
+/* 검색 영역 스타일 */
+#searchSection {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+#searchType {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#searchType:hover, #searchType:focus {
+    background-color: #e0e0e0;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+}
+
+#searchButton.inactive {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#navContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.nav-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #45a049;
+}
+
+/* 검색된 댓글 강조 스타일 */
+.highlight {
+    background-color: #90ee90; /* 연두색 하이라이트 */
+}
+
+/* 댓글 달기 버튼 스타일 및 애니메이션 */
+#commentForm button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ccc;
+    color: white;
+    border: none;
+    cursor: not-allowed;
+    transition: background-color 0.3s ease;
+}
+
+#commentForm button[type="submit"].active {
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+#commentForm button[type="submit"].inactive {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 댓글 번호 스타일 */
+.comment-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #888;
+}
+
+/* 댓글 나타나는 애니메이션 */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.comment.new-comment {
+    animation: slideInFromLeft 0.5s ease-out;
+}
+
+
+#scrollButtonsContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 스크롤 버튼 스타일 */
+.scroll-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.scroll-button:hover {
+    background-color: #45a049;
+}
+
+.scroll-button.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* 추천 및 비추천 버튼 애니메이션 */
+@keyframes flash-green {
+    0%, 100% { background-color: #007bff; } /* 원래 파란색 */
+    50% { background-color: #28a745; } /* 초록색으로 번쩍임 */
+}
+
+@keyframes flash-red {
+    0%, 100% { background-color: #007bff; } /* 원래 파란색 */
+    50% { background-color: #dc3545; } /* 빨간색으로 번쩍임 */
+}
+
+.flash-green {
+    animation: flash-green 0.5s ease;
+}
+
+.flash-red {
+    animation: flash-red 0.5s ease;
+}
+
+
+/* 팝업 오버레이 스타일 */
+.mention-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px; /* 둥근 모서리 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.mention-content {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.mention-content img {
+    max-width: 100px; /* 이미지 미리보기 크기 */
+    max-height: 100px;
+    border-radius: 10px; /* 이미지 모서리 둥글게 */
+    margin-top: 10px;
+    margin-right: 5px;
+    display: inline-block;
+    object-fit: cover; /* 이미지가 잘리지 않도록 커버 */
+}
+
+/* 새로운 스크롤 버튼 스타일 */
+.scroll-to-comment-button {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-to-comment-button:hover {
+    background-color: #45a049;
+}
+
+
+/*애니메이션 */
+.highlighted {
+    background-color: yellow;
+    transition: background-color 0.5s ease;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주제 페이지</title>
+    <link rel="stylesheet" href="assets/topic.css">
+    <style>
+        /* 스크롤 버튼 스타일 */
+        #scrollButtonsContainer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .scroll-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- "커뮤니티" 링크 추가 -->
+    <div id="communityLinkContainer">
+        <a href="index.html" id="communityLink">커뮤니티</a>
+    </div>
+
+    <h1 id="topicTitle"></h1>
+
+    <div id="commentsContainer">
+        <div id="comments"></div>
+    </div>
+
+    <!-- 스크롤 버튼 추가 -->
+    <div id="scrollButtonsContainer">
+        <button id="scrollToTopButton" class="scroll-button">↑</button>
+        <button id="scrollToBottomButton" class="scroll-button">↓</button>
+    </div>
+
+    <form id="commentForm">
+        <div class="inline-inputs">
+            <input type="text" id="username" placeholder="ㅁㄴㅇㄹ">
+            <input type="password" id="password" placeholder="비밀번호">
+        </div>
+        <div>
+            <textarea id="commentInput" placeholder="아무거나 말해보세요!" required></textarea>
+        </div>
+        <div class="file-upload-box">
+            <label for="fileInput" class="file-label">
+                <img src="assets/free-icon-image-gallery-3342176.png" alt="파일 첨부" class="file-icon">
+                <span>사진/영상 첨부</span>
+                <input type="file" id="fileInput" accept="image/*,video/*" multiple>
+            </label>
+            <div id="filePreview" class="file-preview-container"></div>
+        </div>
+        <button type="submit">댓글 달기</button>
+    </form>
+    
+    <div id="fullscreenImageContainer" class="fullscreen-image-container" style="display: none;">
+        <img id="fullscreenImage" src="" alt="원본 이미지">
+        <button id="closeFullscreenImage" class="close-fullscreen">X</button>
+    </div>
+    
+    <!--언급-->
+    <div id="mentionOverlay" class="mention-overlay" style="display: none;">
+        <div id="mentionContent" class="mention-content"></div>
+        <button id="scrollToCommentButton" class="scroll-to-comment-button">해당 댓글로 이동</button>
+    </div>
+    
+    
+    
+    
+    <!-- 검색 UI -->
+    <div id="searchSection">
+        <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+        <select id="searchType">
+            <option value="username">이름</option>
+            <option value="content">본문</option>
+            <option value="number">번호</option>
+        </select>
+        <button id="searchButton">검색</button>
+    </div>
+
+    <div id="mzContainer">
+        <h2>MZ 주제</h2>
+        <div id="mzTopicList" class="mz-topic-list"></div>
+    </div>
+
+    <script src="scripts/topic.js" type="module"></script>
+</body>
+</html>

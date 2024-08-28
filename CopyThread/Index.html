@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티</title>
+    <link rel="stylesheet" href="assets/index.css">
+</head>
+<body>
+    <h1>커뮤니티</h1>
+
+    <div>
+        <input type="text" id="searchInput" placeholder="해시태그로 검색 (#을 포함하지 않음)">
+        <button id="searchButton">검색</button>
+    </div>
+
+    <div>
+        <h2>MZ 주제 (인기 주제)</h2>
+        <div id="mzTopicList" class="topic-list"></div>
+    </div>
+
+    <div>
+        <h2>주제 만들기</h2>
+        <form id="createTopicForm">
+            <input type="text" id="topicTitle" placeholder="주제 제목" required>
+            <input type="text" id="topicHashtags" placeholder="해시태그 (쉼표로 구분)" required>
+            <button type="submit">주제 생성</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>주제 목록</h2>
+        <div id="topicList" class="topic-list"></div>
+    </div>
+
+    <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
